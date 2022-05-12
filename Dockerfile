@@ -15,8 +15,7 @@ WORKDIR /
 COPY entrypoint.sh .
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-
-COPY gunicorn.conf.py /
+COPY gunicorn.conf.py .
 
 WORKDIR /app
 
@@ -25,4 +24,4 @@ ENV PORT 80
 ENV BINDING "0.0.0.0:80"
 ENV WSGI_APP app:application
 
-CMD ["gunicorn", "-c /gunicorn.conf.py"]
+CMD ["gunicorn", "-c", "/gunicorn.conf.py"]
