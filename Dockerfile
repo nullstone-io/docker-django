@@ -3,12 +3,6 @@
 ARG PYTHON_VERSION=3.9
 FROM python:${PYTHON_VERSION}-alpine
 
-# Install poetry
-RUN apk add --no-cache gcc musl-dev libffi-dev
-RUN python -m pip install --upgrade pip
-RUN pip install poetry
-RUN apk del gcc musl-dev libffi-dev
-
 RUN pip install gunicorn
 
 WORKDIR /
