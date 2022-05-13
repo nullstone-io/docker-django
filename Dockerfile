@@ -15,7 +15,6 @@ WORKDIR /app
 
 EXPOSE 80
 ENV PORT 80
-ENV BINDING "0.0.0.0:80"
-ENV WSGI_APP app:application
+ENV DJANGO_DEBUG False
 
 CMD ["gunicorn", "-c", "/gunicorn.conf.py"]

@@ -18,6 +18,7 @@ WORKDIR /app
 
 EXPOSE 9000
 ENV PORT 9000
+ENV DJANGO_DEBUG True
 
 COPY runserver.sh /
 RUN chmod +x /runserver.sh
