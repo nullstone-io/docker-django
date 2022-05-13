@@ -3,6 +3,9 @@
 ARG PYTHON_VERSION=3.9
 FROM python:${PYTHON_VERSION}-alpine
 
+# Add jq to parse ecs container metadata
+RUN apk add jq
+
 RUN pip install gunicorn
 
 WORKDIR /

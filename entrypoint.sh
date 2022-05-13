@@ -2,6 +2,8 @@
 
 set -e
 
+export ECS_PRIVATE_IPS=$(wget -qO- "${ECS_CONTAINER_METADATA_URI}" | jq -r '.Networks | map(.IPv4Addresses) | flatten | join(",")')
+
 # Configure DATABASE_URL if POSTGRES_URL is set
 if [ -n "${POSTGRES_URL}" ]; then
   echo "Setting DB_ADAPTER=postgresql"
